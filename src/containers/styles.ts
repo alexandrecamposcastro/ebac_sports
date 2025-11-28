@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Produtos = styled.ul`
   display: grid;
@@ -12,4 +12,4 @@ export const Produtos = styled.ul`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
-`
+`;

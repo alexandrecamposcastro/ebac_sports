@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { cores } from '../../styles'
+import styled from "styled-components";
+import { cores } from "../../styles";
 
 export const Header = styled.header`
   background-image: linear-gradient(
@@ -42,4 +42,4 @@ export const Header = styled.header`
       margin-top: 16px;
     }
   }
-`
+`;

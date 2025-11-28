@@ -1,23 +1,23 @@
-import { Produto as ProdutoType } from '../../App'
-import * as S from './styles'
+import { Produto as ProdutoType } from "../../App";
+import * as S from "./styles";
 
 type Props = {
-  produto: ProdutoType
-  aoComprar: (produto: ProdutoType) => void
-  favoritar: (produto: ProdutoType) => void
-  estaNosFavoritos: boolean
-}
+  produto: ProdutoType;
+  aoComprar: (produto: ProdutoType) => void;
+  favoritar: (produto: ProdutoType) => void;
+  estaNosFavoritos: boolean;
+};
 
 export const paraReal = (valor: number) =>
-  new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(
+  new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(
     valor
-  )
+  );
 
 const ProdutoComponent = ({
   produto,
   aoComprar,
   favoritar,
-  estaNosFavoritos
+  estaNosFavoritos,
 }: Props) => {
   return (
     <S.Produto>
@@ -30,14 +30,14 @@ const ProdutoComponent = ({
       </S.Prices>
       <S.BtnComprar onClick={() => favoritar(produto)} type="button">
         {estaNosFavoritos
-          ? '- Remover dos favoritos'
-          : '+ Adicionar aos favoritos'}
+          ? "- Remover dos favoritos"
+          : "+ Adicionar aos favoritos"}
       </S.BtnComprar>
       <S.BtnComprar onClick={() => aoComprar(produto)} type="button">
         Adicionar ao carrinho
       </S.BtnComprar>
     </S.Produto>
-  )
-}
+  );
+};
 
-export default ProdutoComponent
+export default ProdutoComponent;

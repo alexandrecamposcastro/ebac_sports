@@ -1,33 +1,29 @@
-import * as S from './styles'
+import * as S from "./styles";
+import { useAppSelector } from "../../store/hooks";
+import cesta from "../../assets/cesta.png";
+import { paraReal } from "../Produto";
 
-import { Produto } from '../../App'
+const Header = () => {
+  const itensNoCarrinho = useAppSelector((state) => state.cart.items);
+  const favoritos = useAppSelector((state) => state.favorites.items);
 
-import cesta from '../../assets/cesta.png'
-import { paraReal } from '../Produto'
-
-type Props = {
-  itensNoCarrinho: Produto[]
-  favoritos: Produto[]
-}
-
-const Header = ({ itensNoCarrinho, favoritos }: Props) => {
   const valorTotal = itensNoCarrinho.reduce((acc, item) => {
-    acc += item.preco
-    return acc
-  }, 0)
+    acc += item.preco;
+    return acc;
+  }, 0);
 
   return (
     <S.Header>
       <h1>EBAC Sports</h1>
       <div>
         <span>{favoritos.length} favoritos</span>
-        <img src={cesta} />
+        <img src={cesta} alt="Cesta" />
         <span>
           {itensNoCarrinho.length} itens, valor total: {paraReal(valorTotal)}
         </span>
       </div>
     </S.Header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
